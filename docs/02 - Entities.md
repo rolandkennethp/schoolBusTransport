@@ -55,13 +55,13 @@ The User entity is responsible only for authentication and authorization.
 
 ## Responsibilities
 
-- Store login credentials
+- Store authentication credentials
 - Store user role
 - Manage account status
 - Force password change on first login
 - Authenticate users
 
-## Key Attributes
+## Core Information
 
 - Username
 - Password
@@ -107,7 +107,7 @@ The administrator manages the entire transportation system.
 - View reports
 - Manage complaints
 
-## Key Attributes
+## Core Information
 
 - Full Name
 - Email
@@ -146,7 +146,7 @@ Parents can access only information related to their own children.
 - Raise complaints
 - Receive notifications
 
-## Key Attributes
+## Core Information
 
 - Full Name
 - Email
@@ -184,7 +184,7 @@ Represents a driver responsible for operating school buses.
 - Navigate routes
 - Send emergency alerts
 
-## Key Attributes
+## Core Information
 
 - Full Name
 - Email
@@ -221,11 +221,11 @@ Students are transported using the route serving their assigned bus stop.
 
 ## Responsibilities
 
-- Parent assignment
-- Bus stop assignment
-- Transportation records
+- Maintain parent association
+- Maintain bus stop assignment
+- Determine transportation eligibility
 
-## Key Attributes
+## Core Information
 
 - Full Name
 - Grade
@@ -259,10 +259,9 @@ A bus is assigned to a generated route for a trip.
 ## Responsibilities
 
 - Transport students
-- Execute trips
-- Carry assigned drivers
+- Execute assigned trips
 
-## Key Attributes
+## Core Information
 
 - Bus Number
 - Registration Number
@@ -301,7 +300,7 @@ Routes are generated using bus stops.
 - Group students
 - Support route generation
 
-## Key Attributes
+## Core Information
 
 - Stop Name
 - Landmark
@@ -334,11 +333,11 @@ Routes are generated automatically by the system and assigned to buses.
 
 ## Responsibilities
 
-- Connect bus stops
+- Define the sequence of bus stops
 - Support navigation
 - Support ETA calculation
 
-## Key Attributes
+## Core Information
 
 - Route Name
 - Route Status
@@ -367,17 +366,18 @@ Deleted by:
 
 ## Purpose
 
-Represents one completed or active journey of a bus.
+Represents a single execution of a route by a bus.
 
 Every trip records operational information for that journey.
 
 ## Responsibilities
 
 - Store trip timing
+- Record trip execution
 - Store GPS history
 - Track trip status
 
-## Key Attributes
+## Core Information
 
 - Start Time
 - End Time
@@ -412,25 +412,25 @@ Complaints follow a predefined workflow until they are resolved.
 
 Complaint Filed
 
-↓
+    ↓
 
 Complaint Viewed
 
-↓
+    ↓
 
 Resolved
 
-↓
+    ↓
 
 Closed
 
 ## Responsibilities
 
 - Track complaint status
-- Store complaint information
+- Manage complaint lifecycle
 - Notify parents after resolution
 
-## Key Attributes
+## Core Information
 
 - Subject
 - Description
@@ -481,6 +481,23 @@ Deleted by:
 
 ---
 
+# Design Principles
+
+The entity model follows these principles:
+
+- Authentication is separated from business data.
+- Business entities represent real-world objects or events.
+- Students are assigned to bus stops instead of buses.
+- Routes are generated using bus stops.
+- Buses are assigned to routes.
+- Trips represent the execution of a route by a bus.
+
+---
+
 # Phase Status
 
-Entity Identification Completed
+✅ Entity Identification Completed
+
+Next Phase:
+
+➡️ 03-Relationships.md
