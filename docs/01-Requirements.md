@@ -91,7 +91,6 @@ Responsibilities include:
 - Edit student
 - Delete student
 - Assign parent
-- Assign bus
 - Assign bus stop
 
 ### Parent Management
@@ -126,7 +125,8 @@ Responsibilities include:
 
 ### Route Management
 
-- Generate optimized routes
+- Generate optimized routes using bus stops
+- Assign buses to generated routes
 - Regenerate routes
 - Display routes on map
 
@@ -290,9 +290,10 @@ Email notifications are sent when complaints are resolved.
 - A driver may drive different buses on different trips.
 - A driver cannot have multiple active trips simultaneously.
 - Bus capacity cannot be exceeded.
-- Students may change buses.
 - Students may change bus stops.
 - Routes are generated using bus stops.
+- Buses are assigned to generated routes.
+- Students are transported by the bus assigned to the route serving their bus stop.
 - The application supports one school only (Version 1).
 
 ---
