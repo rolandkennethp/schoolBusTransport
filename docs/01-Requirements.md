@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The School Bus Transportation Management System is a web-based application designed to help a school manage its transportation services efficiently. The system provides separate portals for administrators, drivers, and parents, enabling real-time bus tracking, route management, attendance, and communication.
+The School Bus Transportation Management System is a web-based application designed to help a school manage its transportation services efficiently. The system provides separate portals for administrators, drivers, and parents, enabling real-time bus tracking, route management, live tracking, and communication.
 
 The primary objective is to improve the safety, transparency, and efficiency of student transportation.
 
@@ -36,7 +36,6 @@ Responsibilities include:
 - Assigning buses and drivers
 - Generating optimized routes
 - Monitoring live bus locations
-- Viewing attendance
 - Managing complaints
 - Viewing reports
 
@@ -179,7 +178,6 @@ When a complaint is resolved:
 - View assigned route
 - Navigate to bus stops
 - Share live GPS location
-- Mark attendance
 - Emergency (SOS)
 
 Emergency Workflow:
@@ -209,7 +207,6 @@ Parents receive push notification
 - View assigned bus stop
 - View bus route
 - View current bus speed
-- View attendance
 - Raise complaint
 - Receive push notifications
 - Receive complaint resolution email
@@ -231,22 +228,6 @@ One bus stop may have multiple students assigned.
 
 Routes are generated between bus stops.
 
----
-
-# Attendance System
-
-Attendance is recorded during every trip.
-
-The driver can mark each student as:
-
-- Present
-- Absent
-- Not Picked Up
-
-Attendance cannot be modified by the driver after the trip has ended.
-
----
-
 # Trip Management
 
 Each trip stores:
@@ -256,7 +237,6 @@ Each trip stores:
 - Route
 - Start Time
 - End Time
-- Attendance
 - GPS History
 
 Current bus speed is displayed during the trip only and is not stored after the trip ends.
