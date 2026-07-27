@@ -35,6 +35,7 @@ This document serves as the foundation for:
 - Bus
 - Bus Stop
 - Route
+- Route Stop
 
 ## Operations
 
@@ -362,7 +363,46 @@ Deleted by:
 
 ---
 
-# 9. Trip
+# 9. Route Stop
+
+## Purpose
+
+Represents the association between a Route and a Bus Stop.
+
+A Route Stop defines which bus stops belong to a particular route and the order in which they are visited.
+
+This allows the same Bus Stop to be reused across multiple routes.
+
+## Responsibilities
+
+- Associate a Route with a Bus Stop
+- Store the stop sequence within a route
+- Support route generation
+- Support navigation
+- Support ETA calculation
+
+## Core Information
+
+- Stop Order
+
+## Lifecycle
+
+Created by:
+
+- System (during route generation)
+
+Updated by:
+
+- System
+- Admin (after route regeneration)
+
+Deleted by:
+
+- System
+
+---
+
+# 10. Trip
 
 ## Purpose
 
@@ -400,7 +440,7 @@ Deleted by:
 
 ---
 
-# 10. Complaint
+# 11. Complaint
 
 ## Purpose
 
@@ -455,18 +495,19 @@ Deleted by:
 
 # Entity Summary
 
-| Entity    | Category       | Created By |
-| --------- | -------------- | ---------- |
-| User      | Authentication | System     |
-| Admin     | People         | System     |
-| Parent    | People         | Admin      |
-| Driver    | People         | Admin      |
-| Student   | People         | Admin      |
-| Bus       | Transportation | Admin      |
-| Bus Stop  | Transportation | Admin      |
-| Route     | Transportation | System     |
-| Trip      | Operations     | Driver     |
-| Complaint | Operations     | Parent     |
+| Entity     | Category       | Created By |
+| ---------- | -------------- | ---------- |
+| User       | Authentication | System     |
+| Admin      | People         | System     |
+| Parent     | People         | Admin      |
+| Driver     | People         | Admin      |
+| Student    | People         | Admin      |
+| Bus        | Transportation | Admin      |
+| Bus Stop   | Transportation | Admin      |
+| Route      | Transportation | System     |
+| Route Stop | Transportation | System     |
+| Trip       | Operations     | Driver     |
+| Complaint  | Operations     | Parent     |
 
 ---
 
@@ -476,6 +517,8 @@ Deleted by:
 - Business information is stored separately from authentication information.
 - Students are assigned to bus stops, not directly to buses.
 - Routes are generated using bus stops.
+- Route Stop stores the relationship between routes and bus stops.
+- A bus stop may belong to multiple routes.
 - Buses are assigned to generated routes.
 - A trip represents one execution of a route by a bus.
 
@@ -490,6 +533,7 @@ The entity model follows these principles:
 - Students are assigned to bus stops instead of buses.
 - Routes are generated using bus stops.
 - Buses are assigned to routes.
+- Route Stop represents the ordered list of bus stops within a route.
 - Trips represent the execution of a route by a bus.
 
 ---
